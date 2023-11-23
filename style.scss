@@ -44,7 +44,11 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background: #FF7979;
+    background-color: #FF7979;
+
+    @media screen and (min-width: 1200px) {
+        background-image: url('./images/bg-intro-desktop.png');
+    }
 }
   
 
@@ -68,8 +72,12 @@ main {
         gap: 30px;
         justify-content: center;
         align-items: center;
-        padding: 56px 0;
+        padding: 96px 0;
 
+        @media screen and (min-width: 1200px) {
+           flex-direction: row;
+        }
+        
         .content {
             max-width: 327px;
             display: flex;
@@ -77,7 +85,10 @@ main {
             align-items: center;
             justify-content: center;
             gap: 25px;
-
+            
+            @media screen and (min-width: 1200px) {
+               max-width: 525px;
+            }
             .title {
                 color: #FFF;
                 text-align: center;
@@ -87,6 +98,13 @@ main {
                 font-weight: 700;
                 line-height: 36px;
                 letter-spacing: -0.292px;
+                
+                    @media screen and (min-width: 1200px) {
+                        font-size: 50px;
+                        line-height: 55px;
+                        letter-spacing: -0.521px;
+                        text-align: left;
+                    }
             }
 
             .description {
@@ -97,15 +115,24 @@ main {
                 font-style: normal;
                 font-weight: 500;
                 line-height: 26px; 
+
+                @media screen and (min-width: 1200px) {
+                    text-align: left;
+                }
             }
 
-            p {
+        }
+
+        .form-wrapper {
+
+            .trial {
                 width: 327px;
-                height: 80px;
                 flex-shrink: 0;
                 border-radius: 10px;
+                padding: 6px;
+                margin-bottom: 10px;
 
-                 color: #FFF;
+                color: #FFF;
                 text-align: center;
                 font-family: Poppins;
                 font-size: 15px;
@@ -115,7 +142,90 @@ main {
                 letter-spacing: 0.268px;
                 background: #5E54A4;
                 box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
+
+                @media screen and (min-width: 1200px) {
+                    width: 540px;
+                }
+            }
+            form {
+                width: 327px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                padding: 20px;
+    
+                border-radius: 10px;
+                background: #FFF;
+                box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
+
+
+                @media screen and (min-width: 1200px) {
+                    width: 540px;
+                }
+    
+                input {
+                    width: 279px;
+                    height: 56px;
+                    flex-shrink: 0;
+    
+                    border-radius: 5px;
+                    border: 1px solid #DEDEDE;
+                    background: #FFF;
+    
+                    padding: 5px 20px;
+
+
+                    @media screen and (min-width: 1200px) {
+                        width: 460px;
+                    }
+                }
+    
+                button {
+                    width: 279px;
+                    height: 56px;
+    
+                    border-radius: 5px;
+                    border: none;
+                    outline: none;
+                    background: #38CC8B;
+                    box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.09) inset;
+
+                    color: #FFF;
+                    text-align: center;
+                    font-family: Poppins;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 26px;
+                    letter-spacing: 1px;
+
+                    @media screen and (min-width: 1200px) {
+                        width: 460px;
+                    }
+                }
+    
+                .termsConds {
+                    color: #BAB7D4;
+                    text-align: center;
+                    font-family: Poppins;
+                    font-size: 11px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 21px; 
+        
+                    span {
+                        color: #FF7979;
+                        font-family: Poppins;
+                        font-size: 11px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 21px;
+                    }
+                }
             }
         }
+
     }
 }
