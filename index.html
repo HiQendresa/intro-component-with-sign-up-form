@@ -26,19 +26,19 @@
       </div>
       <div class="form-wrapper">
         <p class="trial"> <span>Try it free 7 days</span> then $20/mo. thereafter</p>
-        <form action="submit" method="post">
-          <input type="text" placeholder="First Name" id="name">
-          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorlName">
-          <p class="error-firstName errorMsg">First Name can not be empty!</p>
-          <input type="text" placeholder="Last Name" id="lastName">
-          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorLastName">
-          <p class="error-lastName errorMsg">Last Name can not be empty!</p>
-          <input type="text" placeholder="Email Address" id="email">
-          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorEmail">
-          <p class="error-email errorMsg">Looks like this is not an email!</p>
-          <input type="text" placeholder="Password" id="password">
-          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorPassword">
-          <p class="error-password errorMsg">Password can not be empty!</p>
+        <form action="submit" method="post" class="form">
+            <input type="text" placeholder="First Name" id="name">
+            <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorName">
+            <p class="error-firstName error-message">First Name can not be empty!</p>
+            <input type="text" placeholder="Last Name" id="lastName">
+            <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorLastName">
+            <p class="error-lastName error-message">Last Name can not be empty!</p>
+            <input type="text" placeholder="Email Address" id="email">
+            <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorEmail">
+            <p class="error-email error-message">Looks like this is not an email!</p>
+            <input type="text" placeholder="Password" id="password">
+            <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorPassword">
+            <p class="error-password error-message">Password can not be empty!</p>
           <button type="submit">Claim your free trial </button>
           <p class="termsConds"> By clicking the button, you are agreeing to our 
             <span>Terms and Services</span> 
@@ -67,40 +67,25 @@
 
   document.querySelector('.form').addEventListener("submit", (event) => {
     event.preventDefault();
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (nameInput.value === null) {
-        errorFirstName.style.display = "block";
-        errorIconFirstName.style.display = "block";
-    }
-    else {
-      errorFirstName.style.display = "none";
-      errorIconFirstName.style.display = "none";
-    }
-    if (lastNameInput.value === null) {
-      errorLastName.style.display = "block";
-      errorIconFirstName.style.display = "block";
-    }
-    else {
-      errorLastName.style.display = "none";
-      errorIconFirstName.style.display = "none";
-    }
-    if (passwordInput.value === null) {
-        errorPassword.style.display = "block";
-        errorIconPassword.style.display = "block";
-    }
-    else {
-      errorPassword.style.display = "none";
-      errorIconPassword.style.display = "none";
-    }
-    if (!emailRegex.test(emailInput.value)) {
-      errorEmail.style.display = "block";
-      errorIconEmail.style.display = "block";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    displayError(nameInput.value.trim() === '', errorFirstName, errorIconFirstName);
+    displayError(lastNameInput.value.trim() === '', errorLastName, errorIconLastName);
+    displayError(passwordInput.value.trim() === '', errorPassword, errorIconPassword);
+    displayError(!emailRegex.test(emailInput.value.trim()), errorEmail, errorIconEmail);
+
+
+  function displayError(condition, errorElement, errorIconElement) {
+    if (condition) {
+      errorElement.style.display = 'block';
+      errorIconElement.style.display = 'block';
+      emailInput.classList.toggle('placeholder-color');
     } else {
-      errorEmail.style.display = "none";
-      errorIconEmail.style.display = "none";
+      errorElement.style.display = 'none';
+      errorIconElement.style.display = 'none';
     }
+  }
   });
 </script>
  
