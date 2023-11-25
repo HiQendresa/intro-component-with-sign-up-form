@@ -25,12 +25,20 @@
         </div>
       </div>
       <div class="form-wrapper">
-        <p class="trial"> Try it free 7 days then $20/mo. thereafter</p>
+        <p class="trial"> <span>Try it free 7 days</span> then $20/mo. thereafter</p>
         <form action="submit" method="post">
-          <input type="text" placeholder="First Name">
-          <input type="text" placeholder="Last Name">
-          <input type="text" placeholder="Email Address">
-          <input type="text" placeholder="Password">
+          <input type="text" placeholder="First Name" id="name">
+          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorlName">
+          <p class="error-firstName errorMsg">First Name can not be empty!</p>
+          <input type="text" placeholder="Last Name" id="lastName">
+          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorLastName">
+          <p class="error-lastName errorMsg">Last Name can not be empty!</p>
+          <input type="text" placeholder="Email Address" id="email">
+          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorEmail">
+          <p class="error-email errorMsg">Looks like this is not an email!</p>
+          <input type="text" placeholder="Password" id="password">
+          <img src="./images/icon-error.svg" alt="icon-error" class="error-icon" id="errorPassword">
+          <p class="error-password errorMsg">Password can not be empty!</p>
           <button type="submit">Claim your free trial </button>
           <p class="termsConds"> By clicking the button, you are agreeing to our 
             <span>Terms and Services</span> 
@@ -41,7 +49,60 @@
   </main>
 
 
+  <script>
+    const emailInput = document.querySelector('#email');
+    const nameInput = document.querySelector('#name');
+    const lastNameInput = document.querySelector('#lastName');
+    const passwordInput = document.querySelector('#password');
 
+    const errorEmail = document.querySelector('.error-email');
+    const errorFirstName = document.querySelector('.error-firstName');
+    const errorLastName = document.querySelector('.error-lastName');
+    const errorPassword = document.querySelector('.error-password');
+
+    const errorIconEmail = document.querySelector('#errorEmail');
+    const errorIconFirstName = document.querySelector('#errorName');
+    const errorIconLastName = document.querySelector('#errorLastName');
+    const errorIconPassword = document.querySelector('#errorPassword');
+
+  document.querySelector('.form').addEventListener("submit", (event) => {
+    event.preventDefault();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (nameInput.value === null) {
+        errorFirstName.style.display = "block";
+        errorIconFirstName.style.display = "block";
+    }
+    else {
+      errorFirstName.style.display = "none";
+      errorIconFirstName.style.display = "none";
+    }
+    if (lastNameInput.value === null) {
+      errorLastName.style.display = "block";
+      errorIconFirstName.style.display = "block";
+    }
+    else {
+      errorLastName.style.display = "none";
+      errorIconFirstName.style.display = "none";
+    }
+    if (passwordInput.value === null) {
+        errorPassword.style.display = "block";
+        errorIconPassword.style.display = "block";
+    }
+    else {
+      errorPassword.style.display = "none";
+      errorIconPassword.style.display = "none";
+    }
+    if (!emailRegex.test(emailInput.value)) {
+      errorEmail.style.display = "block";
+      errorIconEmail.style.display = "block";
+
+    } else {
+      errorEmail.style.display = "none";
+      errorIconEmail.style.display = "none";
+    }
+  });
+</script>
  
   
   </body>

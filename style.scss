@@ -137,14 +137,18 @@ main {
                 font-family: Poppins;
                 font-size: 15px;
                 font-style: normal;
-                font-weight: 700;
                 line-height: 26px; /* 173.333% */
                 letter-spacing: 0.268px;
                 background: #5E54A4;
                 box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
 
+                span {
+                    font-weight: 700;
+                }
+
                 @media screen and (min-width: 1200px) {
                     width: 540px;
+                    padding: 16px 0;
                 }
             }
             form {
@@ -193,6 +197,7 @@ main {
                     box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.09) inset;
 
                     color: #FFF;
+                    text-transform: uppercase;
                     text-align: center;
                     font-family: Poppins;
                     font-size: 15px;
@@ -223,6 +228,26 @@ main {
                         font-weight: 700;
                         line-height: 21px;
                     }
+                }
+
+                .error-icon {
+                    display: none;
+                    position: absolute;
+                    top: 31%;
+                    left: -29px;
+                    height: 20px;
+                }
+
+                .error-message {
+                    color: #F96464;
+                    font-family:  var(--font-family);
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 28px; 
+                    padding-left: 25px;
+                    padding-top: 10px;
+                    display: none;
                 }
             }
         }
